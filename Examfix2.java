@@ -18,11 +18,11 @@ public class Examfix2
     public Examfix2()
     {
         ArrayList<Double> temperatures = new ArrayList<>();
-        temperatures.add(10.5);
-        temperatures.add(12.5);
-        temperatures.add(9.5);
-        temperatures.add(3.6);
-        temperatures.add(38.1);
+        temperatures.add(37.2);
+        temperatures.add(32.5);
+        temperatures.add(37.9);
+        temperatures.add(47.0);
+        temperatures.add(7.1);
     }
 
     /**
@@ -36,7 +36,7 @@ public class Examfix2
         // #24
         
         // (b)
-        if (name==name2) {
+        if (name.equals(name2)) {
             System.out.println("Your name is" + name);
         } else { 
             System.out.println("Your name isnt here");
@@ -45,56 +45,34 @@ public class Examfix2
     
     // question 25
     
-     public void tempCheck(double temperature) {
-        ArrayList<Double> temperatures = new ArrayList<>();
-        temperatures.add(37.2);
-        temperatures.add(32.5);
-        temperatures.add(37.9);
-        temperatures.add(47.0);
-        temperatures.add(7.1);
+     public void tempCheck(ArrayList<Double> temperatures) {
         
-        double high = 37.5;
+        double fever = 37.5;
+        int count = 0;
+        double max = 0.0;
         
-        for (double i = 0; i < temperatures.size(); i++) {
-            if ( i > high) {
-            System.out.println(i);   
+        
+        for (double temp : temperatures) {
+            if ( temp > fever) {
+                count++; 
+            }
+            if ( temp > max ) {
+                max = temp;
+            }
         }
-        double maxNumber = Collections.max(temperatures);
         
-        }
-    }
-    
-    // question 26
-    public void tempCheck2 (int temperature) {
-        ArrayList<Double> temperatures = new ArrayList<>();
-        temperatures.add(37.2);
-        temperatures.add(32.5);
-        temperatures.add(37.9);
-        temperatures.add(47.0);
-        temperatures.add(7.1);
+        System.out.println("amount of fever: " + count);
+        System.out.println("highest fever: " + max);
         
-        double high = 37.5;
-        for (int i = 0; i < temperatures.size(); i++) {
-            double maxNumber = Collections.max(temperatures);
-            System.out.println(maxNumber);
-        }
-    }
-    
-    // question 27
-    public void tempCheck3(int temperature) {
-        ArrayList<Double> temperatures = new ArrayList<>();
-        temperatures.add(37.2);
-        temperatures.add(32.5);
-        temperatures.add(37.9);
-        temperatures.add(47.0);
-        temperatures.add(7.1);
+        // question 26
+        
+        System.out.println("Max element" + Collections.max(temperatures));
+        
+        // question 27
         
         Collections.sort(temperatures);
+        System.out.println("Max element (sorted list)" + temperatures.get(temperatures.size()-1));
         
-        
-        for (double i : temperatures) {
-            System.out.print(i);
-        }
     }
 }
 
